@@ -8,7 +8,12 @@
 </head>
 <body>
 
-<%= yield %>
+  <nav>
+    <%= link_to "Directors", directors_url %>
+    ||
+    <%= link_to "Movies", movies_url %>
+  </nav>
+  <%= yield %>
 
 </body>
 </html>
