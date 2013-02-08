@@ -10,6 +10,14 @@
   <%= @actor.dob %>
 </p>
 
+<p>
+  <b>Filmography:</b>
+  <ul>
+    <% @actor.roles.each do |role| %>
+      <li><%= role.movie.title %></li>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_actor_path(@actor) %> |
 <%= link_to 'Back', actors_path %>

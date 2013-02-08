@@ -15,12 +15,14 @@
   <%= @movie.year %>
 </p>
 
-<p>Roles:</p>
-<ul>
-  <% @movie.roles.each do |role| %>
-    <li><%= role.character_name %></li>
-  <% end %>
-</ul>
+<p>
+  <b>Cast:</b>
+  <ul>
+    <% @movie.roles.each do |role| %>
+      <li><%= role.actor.name %></li>
+    <% end %>
+  </ul>
+</p>
 
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
