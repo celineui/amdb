@@ -1,13 +1,9 @@
 class Movie < ActiveRecord::Base
   attr_accessible :title, :year, :director_id
 
-  # belongs to director
-  def director
-    return Director.find_by_id(self.director_id)
-  end
+  validates_presence_of :director_id, :title
 
-  # has many roles
-  def roles
-    return Role.where(:movie_id => self.id)
-  end
+  belongs_to :director
+
+  has_many :roles
 end
