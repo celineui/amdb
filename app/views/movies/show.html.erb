@@ -19,7 +19,26 @@
   <b>Cast:</b>
   <ul>
     <% @movie.roles.each do |role| %>
-      <li><%= role.actor.name %></li>
+      <li>
+        <%= role.character_name %>
+        (<%= link_to role.actor.name, role.actor %>)
+
+
+        <a href="http://localhost:3000/actors/<%= role.actor.id %>"><%= role.actor.name %></a>
+        <%= link_to role.actor.name, "http://localhost:3000/actors/#{role.actor.id}" %>
+        <%= link_to role.actor.name, actor_url(role.actor.id) %>
+        <%= link_to role.actor.name, actor_url(role.actor) %>
+        <%= link_to role.actor.name, role.actor %>
+
+
+
+
+
+
+
+
+
+      </li>
     <% end %>
   </ul>
 </p>

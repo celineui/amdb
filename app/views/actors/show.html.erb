@@ -13,7 +13,9 @@
 <p>
   <b>Filmography:</b>
   <ul>
-      <li>Something</li>
+    <% @actor.roles.each do |role| %>
+      <li><%= role.movie.title %></li>
+    <% end %>
   </ul>
 </p>
 
