@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Votes</th>
     <th>Title</th>
     <th>Director</th>
     <th>Year</th>
@@ -12,6 +13,7 @@
 
 <% @movies.each do |movie| %>
   <tr>
+    <td><%= movie.votes.count %></td>
     <td><%= movie.title %></td>
     <td><%= movie.director.name %></td>
     <td><%= movie.year %></td>

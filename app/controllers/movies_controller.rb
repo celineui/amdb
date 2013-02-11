@@ -2,7 +2,8 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
+    # params[:sort]....
+    @movies = Movie.order('title asc').limit(500)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,9 @@ class MoviesController < ApplicationController
   # GET /movies/1.json
   def show
     @movie = Movie.find(params[:id])
+    @vote = Vote.new
+    @vote.movie_id = @movie.id
+    # @vote.user_id = User.where(:name => "Raghu").first.id
 
     respond_to do |format|
       format.html # show.html.erb
