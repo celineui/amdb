@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     # params[:sort]....
-    @movies = Movie.order('title asc').limit(500)
+    @movies = Movie.order('title asc').limit(500).sort { |a, b| b.votes.count <=> a.votes.count }
 
     respond_to do |format|
       format.html # index.html.erb
