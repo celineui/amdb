@@ -10,5 +10,20 @@ Amdb::Application.routes.draw do
   resources :roles
   resources :actors
   resources :movies
-  resources :directors
+  resources :directors do
+    resources :movies
+  end
+
+  # get "/directors/:director_id/movies" => 'movies#index'
+  # get '/directors/:director_id/movies/new' => 'movies#new'
+  # post '/directors/:director_id/movies' => 'movies#create'
 end
+
+
+
+
+
+
+
+
+
