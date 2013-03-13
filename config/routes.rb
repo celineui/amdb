@@ -1,6 +1,9 @@
 Amdb::Application.routes.draw do
   root :to => 'Movies#index'
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+  post '/auth/:provider/callback', to: 'sessions#create'
+
   get '/session/new' => 'Sessions#new', :as => 'new_session'
   post '/sessions' => 'Sessions#create', :as => 'sessions'
   delete '/sessions' => 'Sessions#destroy'
