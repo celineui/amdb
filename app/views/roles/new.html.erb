@@ -3,3 +3,27 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', roles_path %>
+
+
+<script type="text/javascript">
+  $(function() {
+    var actors; // make sure you declare your variables before you use them
+    actors = $('#role_actor_id').html();
+
+    // The .change function runs code whenever a selected element changes
+    $('#role_movie_id').change(function(){
+      var selected_movie, final_options;
+
+      // The pseudo-class :checked grabs any elements that have been selected
+      selected_movie = $('#role_movie_id :checked').text();
+
+      // The .filter function filters an element using given input
+      final_options = $(actors).filter('optgroup[label="' + selected_movie + '"]').html();
+
+      // When input is given to the .html function, it replaces the html
+      // of the selected element
+      $('#role_actor_id').html(final_options);
+    });
+  });
+
+</script>
